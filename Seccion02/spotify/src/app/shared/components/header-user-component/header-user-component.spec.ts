@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MediaPlayer } from './media-player';
+import { HeaderUserComponent } from './header-user-component';
 
-describe('MediaPlayer', () => {
-  let component: MediaPlayer;
-  let fixture: ComponentFixture<MediaPlayer>;
+describe('HeaderUserComponent', () => {
+  let component: HeaderUserComponent;
+  let fixture: ComponentFixture<HeaderUserComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [MediaPlayer]
+      imports: [HeaderUserComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(MediaPlayer);
+    fixture = TestBed.createComponent(HeaderUserComponent);
     component = fixture.componentInstance;
     await fixture.whenStable();
   });

@@ -1,7 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import {HomePageComponent} from './pages/home-page-component/home-page-component';
 
-const routes: Routes = [];
+const routes: Routes = [
+  {
+    path: 'home',
+    component: HomePageComponent,//esto agrega el homePageComponent como pagina principal si se accede al subdirectorio home
+  }
+];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],

@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { HeaderUser } from './header-user';
+import { SideBarComponent } from './side-bar-component';
 
-describe('HeaderUser', () => {
-  let component: HeaderUser;
-  let fixture: ComponentFixture<HeaderUser>;
+describe('SideBarComponent', () => {
+  let component: SideBarComponent;
+  let fixture: ComponentFixture<SideBarComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [HeaderUser]
+      imports: [SideBarComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(HeaderUser);
+    fixture = TestBed.createComponent(SideBarComponent);
     component = fixture.componentInstance;
     await fixture.whenStable();
   });
