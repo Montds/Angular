@@ -1,0 +1,41 @@
+<!--diseño small--->
+@if (mode === 'small') {
+  <div class="card-player player-small">
+    <img appImgBroken [src]="track.cover" [alt]="track.name" class="cover">
+
+    <div class="content-player">
+      {{ track.name }}
+    </div>
+
+    <div class="buttons-player">
+      <button class="play-btn">
+        <i class="uil uil-play"></i>
+      </button>
+    </div>
+  </div>
+}
+
+@else if (mode === 'big') {
+  <div class="card-player player-big">
+    <img
+      [src]="track.cover"
+      [alt]="track.name"
+      class="cover">
+
+    <div class="content-player">
+      <div class="title-track">
+        <strong>{{ track.name }}</strong>
+      </div>
+
+      <div class="sub-title-track">
+        {{ track.artist?.nickname || 'Artista desconocido' }}
+      </div>
+    </div>
+
+    <div class="buttons-player">
+      <button class="play-btn">
+        <i class="uil uil-play"></i>
+      </button>
+    </div>
+  </div>
+}

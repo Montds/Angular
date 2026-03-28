@@ -7,14 +7,9 @@ import {SideBarComponent} from '@shared/components/side-bar-component/side-bar-c
 @NgModule({
   declarations: [],
   imports: [
-    CommonModule,
-    HeaderUserComponent,
-    MediaPlayerComponent,
-    SideBarComponent
+    CommonModule
   ],
   exports: [
-    //esto es parea exporla el Component pero se debe declarar la importacion donde se vatya a usar
-    SideBarComponent,
   ]
 })
 export class SharedModule { }

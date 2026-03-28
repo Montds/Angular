@@ -1,0 +1,41 @@
+<div class="play-list-body">
+  <ul class="play-list-table-header">
+    <li (click)="changeSort('name')">Nombre ❤</li>
+    <li (click)="changeSort('album')">Album 🆗</li>
+    <li>fecha incorporación 🍌😁</li>
+    <li><i class="uil uil-clock-eight"></i></li>
+  </ul>
+
+  @for (track of (tracks | orderList:optionSort.property : optionSort.order); track track._id) {
+    <ul class="play-list-rows">
+
+      <li class="track-name">
+        <div class="cover-section">
+          <img appImgBroken
+               class="cover-track"
+               [src]="track.cover"
+               [alt]="track.name">
+          <div class="cover-info">
+            <div class="name-track">{{ track.name }}</div>
+            <div class="name-track-details">{{ track.artist?.name }}</div>
+          </div>
+        </div>
+      </li>
+
+      <li class="track-name-opacity">
+        {{ track.album  }} orderList
+      </li>
+
+      <li class="track-name-opacity">
+        {{ track.album }}
+      </li>
+
+      <li class="track-name-opacity">
+        {{ track.album }}
+      </li>
+
+    </ul>
+  } @empty {
+    <p>No hay canciones en esta lista.</p>
+  }
+</div>

@@ -2,11 +2,20 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import {HomePageComponent} from './pages/home-page-component/home-page-component';
 
+//en esta seccion iran subseciones de la pagina home
 const routes: Routes = [
   {
-    path: 'home',
-    component: HomePageComponent,//esto agrega el homePageComponent como pagina principal si se accede al subdirectorio home
-  }
+   path:"tracks",
+   loadChildren: () =>import("@modules/tracks/tracks-module").then(m => m.TracksModule),
+  },
+  {
+    path:"favorites",
+    loadChildren: () =>import("@modules/favorites/favorites-module").then(m => m.FavoritesModule),
+  },
+  {
+    path:"history",
+    loadChildren: () =>import("@modules/history/history-module").then(m => m.HistoryModule),
+  },
 ];
 
 @NgModule({
