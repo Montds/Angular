@@ -1,21 +1,19 @@
 <div class="section--generic">
+
   <h1 class="section--generic__title">{{ title }}</h1>
 
+      <div class="section--generic__player--zone">
 
-  <div class="section--generic__player--zone">
+            <ul class="player--list" [class.card-small]="mode === 'small'" [class.card-big]="mode === 'big'">
 
-    <ul class="player--list" [class.card-small]="mode === 'small'" [class.card-big]="mode === 'big'">
+                   @for (track of dataTracks; track track._id)
+                   {
+                     <li>
+                       <app-card-player-component [mode]="mode" [track]="track" />
+                     </li>
+                   }
 
-           @for (track of dataTracks; track track._id) {
-
-             <li>
-               <app-card-player-component [mode]="mode" [track]="track" ></app-card-player-component>
-             </li>
-
-
-           }
-
-         </ul>
+            </ul>
 
        </div>
 

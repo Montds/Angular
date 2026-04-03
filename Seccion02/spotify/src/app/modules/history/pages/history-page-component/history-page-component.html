@@ -1,1 +1,10 @@
-<p>history-page-component works!</p>
+<div class="history-page">
+
+<app-search-component (callbackData)="receiveData($event)" />
+
+  @if (listResults$ | async; as tracks)
+  {
+    <app-play-list-body-component [tracks]="tracks" />
+  }
+
+</div>

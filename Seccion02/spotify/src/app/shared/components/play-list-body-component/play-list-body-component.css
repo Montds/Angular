@@ -19,6 +19,9 @@
   text-transform: uppercase;
   color: var(--color-4);
   opacity: .7;
+
+  cursor: pointer; /* <--- La manita para las canciones */
+
 }
 
 .play-list-rows {
@@ -28,6 +31,7 @@
   grid-template-columns: 3fr 2fr 2fr 1fr;
   margin: 0;
   padding: 1rem 0 0 0;
+
 }
 
 .play-list-rows .track-name-opacity {

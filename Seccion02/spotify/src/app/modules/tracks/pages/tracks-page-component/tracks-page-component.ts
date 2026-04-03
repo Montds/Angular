@@ -1,7 +1,9 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, inject, OnDestroy, OnInit, signal, WritableSignal} from '@angular/core';
 import {SectionGenericComponent} from '@shared/components/section-generic-component/section-generic-component';
-import * as dataRow from "../../../../data/tracks.json";
 import {TrackModel} from '@core/models/tracks.model';
+import {TrackService} from '@modules/tracks/services/track-service';
+import {Subscription} from 'rxjs';
+import {toSignal} from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'app-tracks-page-component',
@@ -11,15 +13,16 @@ import {TrackModel} from '@core/models/tracks.model';
   templateUrl: './tracks-page-component.html',
   styleUrl: './tracks-page-component.css',
 })
-export class TracksPageComponent implements OnInit {
-
-  mockTracksList: Array<TrackModel>=[]
-
-  ngOnInit(): void {
-    //se obtiene los datos que estan en el json local, se puede adaptar para obtenerlo del backend
-    this.mockTracksList = (dataRow as any).default.data ;
-  }
 
 
+export class TracksPageComponent {
+
+  private trackService = inject(TrackService);
+
+  // 2. Declaramos las Signals vinculadas directamente a los Observables del servicio
+  // toSignal se encarga de: subscribirse, desubscribirse y guardar el valor de forma automatica.
+
+  tracksTrending = toSignal(this.trackService.getAllTracks$(), { initialValue: [] });
+  tracksRandom = toSignal(this.trackService.getAllRandom$(), { initialValue: [] });
 
 }

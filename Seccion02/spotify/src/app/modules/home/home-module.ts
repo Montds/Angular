@@ -13,8 +13,8 @@ import {SideBarComponent} from '@shared/components/side-bar-component/side-bar-c
   declarations: [],
   imports: [
     CommonModule,
-    HomeRoutingModule, //esto dice que tendra asignada una ruta
-    HomePageComponent, //aqui se agrega el HomePageCompent al HomeModule
+    HomeRoutingModule//esto dice que tendra asignada una ruta
+    //aqui se agrega el HomePageCompent al HomeModule
   ]
 })
 export class HomeModule { }

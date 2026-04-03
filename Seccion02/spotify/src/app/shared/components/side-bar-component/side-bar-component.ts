@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {RouterLink} from '@angular/router';
+import {Subscription} from 'rxjs';
 
 @Component({
   selector: 'app-side-bar-component',
@@ -16,7 +17,8 @@ export class SideBarComponent {
   mainMenu:any  = { defaultOptions: [], accessLink: [] };
   customOptions: any[] = [];
 
-  constructor() {
+  constructor()
+  {
     this.mainMenu.defaultOptions = [
       {
         name: 'Home',
@@ -31,8 +33,7 @@ export class SideBarComponent {
       {
         name: 'Tu biblioteca',
         icon: 'uil uil-chart',
-        router: ['/', 'favorites'],
-     //   query: { hola: 'mundo' }
+        router: ['/', 'favorites']
       }
     ];
 

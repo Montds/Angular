@@ -1,41 +1,43 @@
 <div class="play-list-body">
-  <ul class="play-list-table-header">
-    <li (click)="changeSort('name')">Nombre ❤</li>
-    <li (click)="changeSort('album')">Album 🆗</li>
-    <li>fecha incorporación 🍌😁</li>
-    <li><i class="uil uil-clock-eight"></i></li>
-  </ul>
+      <ul class="play-list-table-header">
+            <li (click)="changeSort('name')">Nombre ❤</li>
+            <li (click)="changeSort('album')">Album 🆗</li>
+            <li>fecha incorporación 🍌😁</li>
+            <li><i class="uil uil-clock-eight"></i></li>
+      </ul>
 
-  @for (track of (tracks | orderList:optionSort.property : optionSort.order); track track._id) {
+  @for (track of ( tracks | orderList:optionSort.property : optionSort.order); track track._id)
+  {
     <ul class="play-list-rows">
 
       <li class="track-name">
-        <div class="cover-section">
-          <img appImgBroken
-               class="cover-track"
-               [src]="track.cover"
-               [alt]="track.name">
-          <div class="cover-info">
-            <div class="name-track">{{ track.name }}</div>
-            <div class="name-track-details">{{ track.artist?.name }}</div>
-          </div>
-        </div>
+            <div class="cover-section">
+                    <img appImgBroken  class="cover-track"   [src]="track.cover"  [alt]="track.name">
+                    <div class="cover-info">
+                        <div class="name-track">{{ track.name }}</div>
+                        <div class="name-track-details">{{ track.artist?.name }}</div>
+                    </div>
+            </div>
       </li>
 
+      <!---Columna Album --->
       <li class="track-name-opacity">
         {{ track.album  }} orderList
       </li>
 
+      <!---Columna fecha --->
       <li class="track-name-opacity">
-        {{ track.album }}
+        sin fecha por mientras
       </li>
 
+      <!---Columna cuarta columna --->
       <li class="track-name-opacity">
-        {{ track.album }}
+        sin campo por mientras
       </li>
 
     </ul>
-  } @empty {
+  }
+  @empty {
     <p>No hay canciones en esta lista.</p>
   }
 </div>

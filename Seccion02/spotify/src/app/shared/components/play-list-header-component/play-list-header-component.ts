@@ -8,5 +8,4 @@ import {TrackModel} from '@core/models/tracks.model';
   styleUrl: './play-list-header-component.css',
 })
 export class PlayListHeaderComponent {
-  @Input() tracks: TrackModel[] = []
 }

@@ -1,0 +1,5 @@
+//para variables de entorno que use la aplicacion
+export const environment = {
+  production: false,
+  api:"http://localhost:3000/api/1.0"
+};

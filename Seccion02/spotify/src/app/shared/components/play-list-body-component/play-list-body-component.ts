@@ -1,31 +1,24 @@
-import {Component, OnInit} from '@angular/core';
-import * as dataRow from "../../../data/tracks.json"
+import {Component, Input, input, OnInit} from '@angular/core';
 import {TrackModel} from '@core/models/tracks.model';
 import {OrderListPipe} from '@shared/pipe/order-list-pipe';
+import {ImgBroken} from '@shared/directives/img-broken';
 
 @Component({
   selector: 'app-play-list-body-component',
   imports: [
-    OrderListPipe
+    OrderListPipe,
+    ImgBroken
   ],
   templateUrl: './play-list-body-component.html',
   styleUrl: './play-list-body-component.css',
 })
-export class PlayListBodyComponent implements OnInit {
-    tracks:TrackModel[] = [];
+export class PlayListBodyComponent  {
+    @Input() tracks:TrackModel[] = [];
     optionSort:{property:string | null, order:string  } ={property:null,order:"asc"};
 
-    ngOnInit(): void {
-        this.tracks = (dataRow as any).default.data;
-    }
-
-    changeSort(property:string) : void{
-      const {order}= this.optionSort;
-      this.optionSort ={
-        property:property ,
-        order: (order==="asc"? "desc":"asc")
-      }
-      console.log(this.optionSort);
-    }
-
+  changeSort(property: string): void
+  {
+     const nextOrder = this.optionSort.order === 'asc' ? 'desc' : 'asc';
+     this.optionSort = { property, order: nextOrder };
+  }
 }

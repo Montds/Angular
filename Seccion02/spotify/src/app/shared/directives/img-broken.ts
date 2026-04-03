@@ -1,4 +1,4 @@
-import {Directive, HostListener} from '@angular/core';
+import {Directive, HostListener, inject} from '@angular/core';
 import { ElementRef } from '@angular/core';
 @Directive({
   selector: 'img[appImgBroken]',
@@ -6,18 +6,13 @@ import { ElementRef } from '@angular/core';
 })
 export class ImgBroken {
 
-  //manejar el error de la carga de imagenes
+  private elHost = inject(ElementRef);
 
-  //host
-  constructor(private elHost: ElementRef) {
-    console.log( elHost);
-  }
-  //se carga la imagen url en caso de que no cargue
-  @HostListener("error") handleError():void{
-    console.log("⚠️ la imagen no puedo cargar " ,this.elHost);
-    const elNative = this.elHost.nativeElement;
-    elNative.src="images/imgbroken.png";
-}
-
+  @HostListener("error") handleError():void
+  {
+      console.log("⚠️ la imagen no puedo cargar " ,this.elHost);
+      const elementHTML = this.elHost.nativeElement;
+      elementHTML.src="images/imgbroken.png";
+ }
 
 }
