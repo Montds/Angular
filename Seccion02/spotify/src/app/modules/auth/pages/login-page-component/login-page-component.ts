@@ -7,7 +7,6 @@ import { toSignal } from '@angular/core/rxjs-interop'; // <-- El traductor
 
 @Component({
   selector: 'app-login-page-component',
-  standalone:true,
   imports: [
     ReactiveFormsModule
   ],
