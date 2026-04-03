@@ -9,12 +9,12 @@ import {sessionGuard} from '@core/guards/session-guard';
 export const routes: Routes = [
   {
    path:"auth", //ruta localhost:4200/
-   loadChildren: () => import("./modules/auth/auth-module").then(m => m.AuthModule)
+   loadChildren: () => import("./modules/auth/auth-routes").then(m => m.authRoutes)
   },
   {
     path: "",
     component:HomePageComponent ,
-    loadChildren: () => import("./modules/home/home-module").then(m => m.HomeModule),
+    loadChildren: () => import("./modules/home/home-routes").then(m => m.homeRoutes),
     canActivate:[
       sessionGuard
     ]
